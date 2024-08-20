@@ -1,0 +1,84 @@
+Um programador criou um método Java que recebe como parâmetro um inteiro maior ou igual a zero e retorna um inteiro
+cujos dígitos têm suas posições invertidas em relação ao inteiro recebido como parâmetro, conforme os exemplos apre-
+sentados a seguir:
+• Caso essa função receba o inteiro 1234 como parâmetro, ela retornará o inteiro 4321;
+• Caso essa função receba o inteiro 1000 como parâmetro, ela retornará o inteiro 1;
+• Caso essa função receba o inteiro 8 como parâmetro, ela retornará o inteiro 8.
+Qual método executa o que foi especificado?
+(A)		import java.util.Stack; // presente no arquivo
+		public static int inverte(int num) {
+			Stack<Integer> pilha = new Stack<Integer>();
+		
+			do {
+				int resto = num % 10;
+				num /= 10;
+				
+pilha.push(resto);
+			} while(num > 0);
+		
+			for (int i=1; ! pilha.isEmpty(); i*=10)
+				num += pilha.pop() * i;
+			return num;
+}
+(B)		import java.util.LinkedList; // presente no arquivo
+		import java.util.Queue; // presente no arquivo
+		public static int inverte(int num) {
+			Queue<Integer> fila = new LinkedList<Integer>();
+		
+			for ( ; num > 0; ) {
+				int resto = num % 10;
+				num /= 10;
+				fila.offer(resto);
+		}
+		
+			for (int i=1; ! fila.isEmpty(); i*=10)
+				num += fila.poll() * i;
+			return num;
+}
+
+(C)		import java.util.LinkedList; // presente no arquivo
+		import java.util.Queue; // presente no arquivo
+		public static int inverte(int num) {
+			Queue<Integer> fila = new LinkedList<Integer>();
+		
+			do {
+				int resto = num % 10;
+				num /= 10;
+				fila.offer(num);
+			} while(num > 0);
+		
+			for (int i=1; ! fila.isEmpty(); i*=10)
+				num += fila.poll() * i;
+			return num;
+}
+(D)		import java.util.LinkedList; // presente no arquivo
+		import java.util.Queue; // presente no arquivo
+		public static int inverte(int num) {
+			Queue<Integer> fila = new LinkedList<Integer>();
+		
+			while (num > 0) {
+				int resto = num % 10;
+				num /= 10;
+				fila.offer(resto);
+		}
+		
+			for (int i=1; ! fila.isEmpty(); i*=10)
+				num += fila.poll() * i;
+			return num;
+}
+(E)		import java.util.Stack; // presente no arquivo
+		public static int inverte(int num) {
+			Stack<Integer> pilha = new Stack<Integer>();
+		
+			while(num > 0) {
+				int resto = num % 10;
+				num /= 10;
+				
+pilha.push(num);
+}
+		
+			for (int i=1; ! pilha.isEmpty(); i*=10)
+				num += pilha.pop() * i;
+		
+			return num;
+}
