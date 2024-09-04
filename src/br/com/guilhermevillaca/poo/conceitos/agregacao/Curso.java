@@ -1,19 +1,14 @@
+package br.com.guilhermevillaca.poo.conceitos.agregacao;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class Estudante {
-    private String nome;
-
-    public Estudante(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-}
-
+/**
+ *
+ * @author guilherme.villaca
+ */
 class Curso {
+
     private String nome;
     private List<Estudante> estudantes;  // Agregação - Curso "tem" Estudantes
 
@@ -32,18 +27,5 @@ class Curso {
         for (Estudante estudante : estudantes) {
             System.out.println("- " + estudante.getNome());
         }
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Estudante estudante1 = new Estudante("Ana");
-        Estudante estudante2 = new Estudante("Bruno");
-
-        Curso curso = new Curso("Engenharia de Software");
-        curso.matricularEstudante(estudante1);
-        curso.matricularEstudante(estudante2);
-
-        curso.listarEstudantes();
     }
 }

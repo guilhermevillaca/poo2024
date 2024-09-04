@@ -1,19 +1,14 @@
+package br.com.guilhermevillaca.poo.conceitos.composicao;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class Quarto {
-    private String nome;
+/**
+ *
+ * @author guilherme.villaca
+ */
+public class Casa {
 
-    public Quarto(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-}
-
-class Casa {
     private List<Quarto> quartos;  // Composição - Casa "possui" Quarto
 
     public Casa() {
@@ -28,12 +23,5 @@ class Casa {
         for (Quarto quarto : quartos) {
             System.out.println("Casa tem: " + quarto.getNome());
         }
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Casa casa = new Casa();
-        casa.mostrarQuartos();
     }
 }
